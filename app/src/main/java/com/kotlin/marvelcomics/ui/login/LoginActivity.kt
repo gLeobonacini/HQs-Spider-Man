@@ -33,8 +33,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btLogin.setOnClickListener{
-            startActivity(Intent(this, HqActivity::class.java))
             viewModel.verificarUsuario(userEmail.text.toString(),userPassword.text.toString(),remember)
+            startActivity(Intent(this, HqActivity::class.java))
         }
 
         tvCreate.setOnClickListener{

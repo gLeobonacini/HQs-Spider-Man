@@ -6,4 +6,7 @@
     <string name="loginRemember">Remember</string>
     <string name="loginLogin">Login</string>
     <string name="loginCreate">Create Account</string>
+    <string name="registerRegister">Register</string>
+    <string name="registerName">Name</string>
+    <string name="registerSave">Save</string>
 </resources>

@@ -1,14 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.account.AccountActivity">
+    tools:context=".ui.account.AccountActivity"
+    android:fillViewport="true">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Acoount"/>
+        android:background="@color/loginBackground">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tbRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/marvelRed"
+            app:navigationIcon="@drawable/ic_back"
+            app:title="@string/registerRegister"
+            app:titleTextColor="@color/white" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/llRegister"
+            android:backgroundTint="@color/registerUser"
+            android:src="@drawable/ic_add"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="390dp"/>
+
+        <LinearLayout
+            android:id="@+id/llRegister"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/round"
+            android:backgroundTint="@color/marvelRed"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/round"
+                android:backgroundTint="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/registerName"
+                    android:textColor="@color/marvelRed"
+                    android:textSize="15dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cadastroName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/loginEmail"
+                    android:textColor="@color/marvelRed"
+                    android:textSize="15dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cadastroEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/loginPassword"
+                    android:textColor="@color/marvelRed"
+                    android:textSize="15dp" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/cadastroPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:password="true" />
+
+                <Button
+                    android:id="@+id/btSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/registerSave" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

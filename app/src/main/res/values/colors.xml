@@ -7,4 +7,5 @@
     <color name="loginBackground">#FF00162C</color>
     <color name="loginRemember">#FF47525E</color>
     <color name="loginCreate">#FF343F4B</color>
+    <color name="registerUser">#FFEFF2F5</color>
 </resources>
