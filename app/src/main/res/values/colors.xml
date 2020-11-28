@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="darkRed">#FFBB1C1F</color>
+    <color name="marvelRed">#FFEA2427</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="loginBackground">#FF00162C</color>
+    <color name="loginRemember">#FF47525E</color>
+    <color name="loginCreate">#FF343F4B</color>
+</resources>
