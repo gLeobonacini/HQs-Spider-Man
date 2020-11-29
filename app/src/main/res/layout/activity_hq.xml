@@ -4,11 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.hq.HqActivity">
+    tools:context=".ui.hq.HqActivity"
+    android:background="@color/loginBackground">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbHq"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="HQ"/>
+        android:layout_height="wrap_content"
+        android:background="@color/marvelRed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:src="@drawable/marvel_logo"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tbHq"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbHq"
+        tools:listitem="@layout/item_hq"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,4 +9,5 @@
     <string name="registerRegister">Register</string>
     <string name="registerName">Name</string>
     <string name="registerSave">Save</string>
+    <string name="hqNumber">#number</string>
 </resources>

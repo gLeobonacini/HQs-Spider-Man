@@ -1,0 +1,8 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid
+        android:color="@color/loginBackground"/>
+    <stroke
+        android:width="5dp"
+        android:color="@android:color/white"/>
+</shape>
