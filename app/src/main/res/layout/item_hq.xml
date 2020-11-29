@@ -5,13 +5,21 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="20dp"
     android:layout_marginTop="20dp"
-    android:background="@drawable/border_hq"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/loginBackground">
 
-    <ImageView
-        android:id="@+id/ivHqImage"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"/>
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:background="@drawable/border_hq">
+
+        <ImageView
+            android:id="@+id/ivHqImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvHqNumber"
@@ -19,7 +27,7 @@
         android:layout_height="wrap_content"
         android:text="@string/hqNumber"
         android:textColor="@color/white"
-        android:gravity="center_horizontal"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="5dp"/>
 
 </LinearLayout>

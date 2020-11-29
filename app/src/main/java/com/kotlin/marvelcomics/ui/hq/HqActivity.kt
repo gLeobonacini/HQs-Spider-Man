@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_hq.*
 
 class HqActivity : AppCompatActivity() {
 
-    val viewModel by viewModels<HqViewModel>{
+    private val viewModel by viewModels<HqViewModel>{
         object : ViewModelProvider.Factory{
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 return HqViewModel(repository) as T
@@ -23,26 +23,23 @@ class HqActivity : AppCompatActivity() {
     }
 
     lateinit var adapterHq: AdapterHq
-    lateinit var linearLayoutManager: LinearLayoutManager
+    lateinit var layoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hq)
 
         adapterHq = AdapterHq()
-        linearLayoutManager = GridLayoutManager(this,3)
+        layoutManager = GridLayoutManager(this,3)
         rvHq.adapter = adapterHq
-        rvHq.layoutManager = linearLayoutManager
+        rvHq.layoutManager = layoutManager
         rvHq.hasFixedSize()
 
-        viewModel.listResults.observe(this){
+        viewModel.listHq.observe(this){
             adapterHq.addList(it)
         }
 
         //Atualizando os valores da lista
-        viewModel.getHq(15,0)
-
-        //setScroller()
-
+        viewModel.getHq(18,0)
     }
 }

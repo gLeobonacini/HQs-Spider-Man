@@ -54,4 +54,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     // Circle Image View
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    // URL em ImageView
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
