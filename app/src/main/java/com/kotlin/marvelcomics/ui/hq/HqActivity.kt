@@ -1,21 +1,18 @@
 package com.kotlin.marvelcomics.ui.hq
 
-import android.content.ClipData.newIntent
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
-import com.google.gson.Gson
 import com.kotlin.marvelcomics.R
-import com.kotlin.marvelcomics.enitities.Hq
 import com.kotlin.marvelcomics.service.repository
 import com.kotlin.marvelcomics.ui.description.DescriptionActivity
 import kotlinx.android.synthetic.main.activity_hq.*
-import java.io.Serializable
 
 class HqActivity : AppCompatActivity(), AdapterHq.OnClickHqListener {
 
@@ -48,8 +45,9 @@ class HqActivity : AppCompatActivity(), AdapterHq.OnClickHqListener {
 
     override fun onClickHq(position: Int) {
         val hq = viewModel.listHq.value?.get(position)
+        Log.i("HqActivity",hq.toString())
         val intent = Intent(this, DescriptionActivity::class.java)
-        intent.putExtra("hq", hq);
+        intent.putExtra("hq", hq)
         startActivity(intent)
     }
 }

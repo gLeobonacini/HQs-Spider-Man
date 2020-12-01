@@ -1,13 +1,18 @@
 package com.kotlin.marvelcomics.ui.description
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.google.gson.Gson
+import androidx.annotation.RequiresApi
 import com.kotlin.marvelcomics.R
 import com.kotlin.marvelcomics.enitities.Hq
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_description.*
+import java.text.DateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class DescriptionActivity : AppCompatActivity() {
 
@@ -16,23 +21,20 @@ class DescriptionActivity : AppCompatActivity() {
         setContentView(R.layout.activity_description)
         val hq = intent.getSerializableExtra("hq") as Hq
 
-        try{
-            Log.i("DescriptionActivity",hq.toString())
-        }catch (e:Exception){
-            Log.i("DescriptionActivity",e.toString())
-        }
-
         Picasso.get().load("${hq.thumbnail.path}.${hq.thumbnail.extension}").fit().into(ivHqImage)
-        Picasso.get().load("${hq.images[0].path}.${hq.images[0].extension}").fit().into(imDescriptionLista)
         tvDescriptionTitle.text = hq.title
-//        tvDescriptionDescription.text = hq.description
-//        tvDescriptionPublished.text = hq.date[0].toString()
-//        tvDescriptionPrice.text = hq.prices[0].toString()
-//        tvDescriptionPage.text = hq.pageCount.toString()
+        if (hq.description != null)
+            tvDescriptionDescription.text = hq.description
+        //if (hq.dates[0].date != null)
+        //    tvDescriptionPublished.text = dateFormat.parse(hq.dates[0].date).toString()
+        if (hq.prices[0].price != null)
+            tvDescriptionPrice.text = hq.prices[0].price.toString()
+        if (hq.pageCount != null)
+            tvDescriptionPage.text = hq.pageCount.toString()
 
-            btDescriptionBack.setOnClickListener {
-                finish()
-            }
+        btDescriptionBack.setOnClickListener {
+            finish()
+        }
     }
 
 }
