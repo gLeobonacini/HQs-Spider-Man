@@ -1,18 +1,23 @@
 package com.kotlin.marvelcomics.ui.hq
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.marvelcomics.R
 import com.kotlin.marvelcomics.service.repository
+import com.kotlin.marvelcomics.ui.description.DescriptionActivity
 import kotlinx.android.synthetic.main.activity_hq.*
 
-class HqActivity : AppCompatActivity() {
+class HqActivity : AppCompatActivity(), AdapterHq.OnClickHqListener {
+
+    val adapterHq = AdapterHq(this)
 
     private val viewModel by viewModels<HqViewModel>{
         object : ViewModelProvider.Factory{
@@ -22,15 +27,11 @@ class HqActivity : AppCompatActivity() {
         }
     }
 
-    lateinit var adapterHq: AdapterHq
-    lateinit var layoutManager: LinearLayoutManager
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hq)
 
-        adapterHq = AdapterHq()
-        layoutManager = GridLayoutManager(this,3)
+        val layoutManager = GridLayoutManager(this,3)
         rvHq.adapter = adapterHq
         rvHq.layoutManager = layoutManager
         rvHq.hasFixedSize()
@@ -41,5 +42,14 @@ class HqActivity : AppCompatActivity() {
 
         //Atualizando os valores da lista
         viewModel.getHq(18,0)
+    }
+
+    override fun onClickHq(position: Int) {
+        val hq = viewModel.listHq.value?.get(position)
+        Toast.makeText(this,"$position", Toast.LENGTH_LONG).show()
+        //intent.putExtra("imgPrato", prato.img)
+        //intent.putExtra("nomePrato", prato.nome)
+        //intent.putExtra("descricaoPrato", prato.descricao)
+        //startActivity(Intent(this, DescriptionActivity::class.java))
     }
 }

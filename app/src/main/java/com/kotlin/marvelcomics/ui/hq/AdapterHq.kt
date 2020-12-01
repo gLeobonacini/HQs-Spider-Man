@@ -12,7 +12,7 @@ import com.kotlin.marvelcomics.enitities.Hq
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_hq.view.*
 
-class AdapterHq: RecyclerView.Adapter<AdapterHq.HqViewHolder>() {
+class AdapterHq(val listener: OnClickHqListener): RecyclerView.Adapter<AdapterHq.HqViewHolder>() {
     var listHq = ArrayList<Hq>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HqViewHolder {
@@ -26,7 +26,7 @@ class AdapterHq: RecyclerView.Adapter<AdapterHq.HqViewHolder>() {
         var hq = listHq[position]
         holder.tvHq.text = "#${position}"
         Picasso.get().load("${hq.thumbnail.path}.${hq.thumbnail.extension}").fit().into(holder.imHq)
-        Log.i("TAG","${hq.thumbnail.path}.${hq.thumbnail.extension}")
+        Log.i("TAG","${listener}")
     }
 
     fun addList(list: ArrayList<Hq>){
@@ -34,8 +34,23 @@ class AdapterHq: RecyclerView.Adapter<AdapterHq.HqViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class HqViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    interface OnClickHqListener{
+        fun onClickHq(position: Int)
+    }
+
+    inner class HqViewHolder(view: View): RecyclerView.ViewHolder(view), View.OnClickListener {
         val imHq: ImageView = view.ivHqImage
         val tvHq: TextView = view.tvHqNumber
+
+        init{
+            view.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if(position != RecyclerView.NO_POSITION){
+                listener.onClickHq(position)
+            }
+        }
     }
 }
