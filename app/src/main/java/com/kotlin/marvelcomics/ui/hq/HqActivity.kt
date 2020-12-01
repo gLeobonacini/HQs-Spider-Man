@@ -1,19 +1,21 @@
 package com.kotlin.marvelcomics.ui.hq
 
+import android.content.ClipData.newIntent
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.gson.Gson
 import com.kotlin.marvelcomics.R
+import com.kotlin.marvelcomics.enitities.Hq
 import com.kotlin.marvelcomics.service.repository
 import com.kotlin.marvelcomics.ui.description.DescriptionActivity
 import kotlinx.android.synthetic.main.activity_hq.*
+import java.io.Serializable
 
 class HqActivity : AppCompatActivity(), AdapterHq.OnClickHqListener {
 
@@ -46,10 +48,8 @@ class HqActivity : AppCompatActivity(), AdapterHq.OnClickHqListener {
 
     override fun onClickHq(position: Int) {
         val hq = viewModel.listHq.value?.get(position)
-        Toast.makeText(this,"$position", Toast.LENGTH_LONG).show()
-        //intent.putExtra("imgPrato", prato.img)
-        //intent.putExtra("nomePrato", prato.nome)
-        //intent.putExtra("descricaoPrato", prato.descricao)
-        //startActivity(Intent(this, DescriptionActivity::class.java))
+        val intent = Intent(this, DescriptionActivity::class.java)
+        intent.putExtra("hq", hq);
+        startActivity(intent)
     }
 }

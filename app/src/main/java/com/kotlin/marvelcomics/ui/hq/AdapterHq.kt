@@ -26,7 +26,6 @@ class AdapterHq(val listener: OnClickHqListener): RecyclerView.Adapter<AdapterHq
         var hq = listHq[position]
         holder.tvHq.text = "#${position}"
         Picasso.get().load("${hq.thumbnail.path}.${hq.thumbnail.extension}").fit().into(holder.imHq)
-        Log.i("TAG","${listener}")
     }
 
     fun addList(list: ArrayList<Hq>){
