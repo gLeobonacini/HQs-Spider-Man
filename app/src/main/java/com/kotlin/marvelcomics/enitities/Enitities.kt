@@ -1,7 +1,6 @@
 package com.kotlin.marvelcomics.enitities
 
 import java.io.Serializable
-import java.util.*
 import kotlin.collections.ArrayList
 
 

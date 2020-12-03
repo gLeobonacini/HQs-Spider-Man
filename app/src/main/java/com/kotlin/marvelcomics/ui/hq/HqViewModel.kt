@@ -14,12 +14,13 @@ import java.security.MessageDigest
 class HqViewModel(repository: Repository): ViewModel() {
 
     val listHq = MutableLiveData<ArrayList<Hq>>()
-    val spiderMan: Int = 1009610
+    val spiderMan = 1009610
     val apiPublicKey = "6eb7e8896ec5850c52515a8a23ee97f0"
     val apiPrivateKey = "0dd0c16fedb8a02985977eafca66b49f5e6a526f"
 
-    fun getHq(limit: Int, offset: Int) {
+    fun getHq(limit: Int, offset: Int): String?{
         val ts = timeStamp()
+        var error: String? = null
         viewModelScope.launch {
             try {
                 val resultado = repository.getResults(
@@ -33,8 +34,10 @@ class HqViewModel(repository: Repository): ViewModel() {
                 listHq.value = resultado.data.results
             }catch (e: Exception){
                 Log.e("getHq",e.toString())
+                error = e.toString()
             }
         }
+        return error
     }
 
     fun timeStamp(): String{

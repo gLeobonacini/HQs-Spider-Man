@@ -1,5 +1,6 @@
 package com.kotlin.marvelcomics.ui.hq
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -40,7 +41,15 @@ class HqActivity : AppCompatActivity(), AdapterHq.OnClickHqListener {
         }
 
         //Atualizando os valores da lista
-        viewModel.getHq(18,0)
+        var error = viewModel.getHq(18,0)
+        if (error != null){
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Problema no servidor")
+            builder.setIcon(R.drawable.ic_info)
+            builder.setMessage(error)
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+        }
     }
 
     override fun onClickHq(position: Int) {
