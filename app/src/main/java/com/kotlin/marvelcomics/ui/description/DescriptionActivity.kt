@@ -1,10 +1,12 @@
 package com.kotlin.marvelcomics.ui.description
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.kotlin.marvelcomics.R
 import com.kotlin.marvelcomics.enitities.Hq
+import com.kotlin.marvelcomics.ui.hqAmp.HqAmpActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_description.*
 import java.text.SimpleDateFormat
@@ -35,6 +37,12 @@ class DescriptionActivity : AppCompatActivity() {
 
         btDescriptionBack.setOnClickListener {
             finish()
+        }
+        ivHqImage.setOnClickListener {
+            val intent = Intent(this, HqAmpActivity::class.java)
+            intent.putExtra("hq", hq)
+            startActivity(intent)
+            startActivity(Intent(intent))
         }
     }
 

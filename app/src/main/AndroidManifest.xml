@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MarvelComics">
-        <activity android:name=".ui.description.DescriptionActivity"></activity>
+        <activity android:name=".ui.hqAmp.HqAmpActivity"></activity>
+        <activity android:name=".ui.description.DescriptionActivity" />
         <activity
             android:name=".ui.account.AccountActivity"
             android:windowSoftInputMode="adjustResize" />
