@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.kotlin.marvelcomics.R
 import com.kotlin.marvelcomics.enitities.Hq
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_description.*
 import kotlinx.android.synthetic.main.activity_hq_amp.*
 import kotlinx.android.synthetic.main.activity_hq_amp.ivHqImage
 
@@ -19,7 +18,6 @@ class HqAmpActivity : AppCompatActivity() {
         Picasso.get().load("${hq.thumbnail.path}.${hq.thumbnail.extension}").fit().into(ivHqImage)
 
         btHqAmpClose.setOnClickListener {
-            finish()
             finish()
         }
     }
