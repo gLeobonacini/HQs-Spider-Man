@@ -42,7 +42,6 @@ class DescriptionActivity : AppCompatActivity() {
             val intent = Intent(this, HqAmpActivity::class.java)
             intent.putExtra("hq", hq)
             startActivity(intent)
-            startActivity(Intent(intent))
         }
     }
 
